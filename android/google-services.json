@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "367717799867",
+    "project_id": "aper-club",
+    "storage_bucket": "aper-club.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367717799867:android:bc01b35871089dcf2b969e",
+        "android_client_info": {
+          "package_name": "com.aper.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367717799867-r1kab7kdu4s0u3r60qnhnptp3j1elrnj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBIrvxZXbn_c5EFYNTYGeXECoVlcGE5_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367717799867-ijvs2d75ism9d6rbruoal7v03fo7kpld.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "367717799867-eohacgri2dfuvf8os59uj6b2b6dum1lt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.aper.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
