@@ -1,70 +1,71 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../../domain/usecases/auth_usecase.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase;
+import 'edit_profile_screen.dart';  // Asegúrate de importar la pantalla de edición
 
 class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final authUseCase = Provider.of<AuthUseCase>(context);
+    final firebase.User? user = firebase.FirebaseAuth.instance.currentUser;
 
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              CircleAvatar(
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: CircleAvatar(
                 radius: 50,
-                backgroundImage: NetworkImage('https://via.placeholder.com/150'),  // Reemplaza con la URL de la foto del usuario
+                backgroundImage: NetworkImage(user?.photoURL ?? 'https://via.placeholder.com/150'),
               ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    shape: BoxShape.circle,
-                  ),
-                  child: IconButton(
-                    icon: Icon(Icons.camera_alt, color: Colors.white),
-                    onPressed: () {
-                      // Funcionalidad para cambiar la foto
-                    },
-                  ),
+            ),
+            SizedBox(height: 16),
+            Center(
+              child: Text(
+                user?.displayName ?? 'N/A',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: 8),
+            Center(
+              child: InkWell(
+                onTap: () {
+                  // Función para añadir la ubicación
+                },
+                child: Text(
+                  'Añadir mi localización',
+                  style: TextStyle(color: Colors.blue),
                 ),
               ),
-            ],
-          ),
-          SizedBox(height: 16),
-          Text(
-            'First Name',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            'Last Name',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            'email@example.com',
-            style: TextStyle(fontSize: 16, color: Colors.grey),
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () async {
-              await authUseCase.signOut();
-              Navigator.pushReplacementNamed(context, '/');
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,  // Botón de logout en rojo
             ),
-            child: Text(
-              'Logout',
-              style: TextStyle(color: Colors.white)
+            SizedBox(height: 16),
+            Center(
+              child: OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                  );
+                },
+                child: Text('Editar perfil'),
+              ),
             ),
-          ),
-        ],
+            SizedBox(height: 16),
+            Card(
+              child: ListTile(
+                title: Text('Nivel 2,05', style: TextStyle(color: Colors.green, fontSize: 20)),
+                subtitle: Text('Fiabilidad del nivel: 27,06%', style: TextStyle(color: Colors.grey)),
+                trailing: Chip(
+                  label: Text('->', style: TextStyle(color: Colors.white)),
+                  backgroundColor: Colors.blue,
+                ),
+                onTap: () {
+                  // Función para más información
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

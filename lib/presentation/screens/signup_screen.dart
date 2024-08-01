@@ -46,7 +46,12 @@ class SignupScreen extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, '/home', arguments: user.name);
                 }
               },
-              child: Text('Signup'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 56, 147, 152),
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                textStyle: TextStyle(fontSize: 16),
+              ),
+              child: Text('Signup', style: TextStyle(color: Colors.white)),
             ),
           ],
         ),

@@ -47,7 +47,12 @@ class LoginScreen extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, '/home', arguments: user.name);
                 }
               },
-              child: Text('Login'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 56, 147, 152),
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                textStyle: TextStyle(fontSize: 16),
+              ),
+              child: Text('Login', style: TextStyle(color: Colors.white)),
             ),
             SizedBox(height: 16),
             ElevatedButton.icon(
