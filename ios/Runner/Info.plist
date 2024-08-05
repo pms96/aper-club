@@ -52,14 +52,10 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-				<string>367717799867-r1kab7kdu4s0u3r60qnhnptp3j1elrnj.apps.googleusercontent.com</string>
-				<string>com.googleusercontent.apps.YOUR_CLIENT_ID</string>
+				<string>com.googleusercontent.apps.367717799867-eohacgri2dfuvf8os59uj6b2b6dum1lt</string>
 			</array>
 		</dict>
 	</array>
-	<key>SignInWithApple</key>
-	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to your photo library to upload profile pictures.</string>
 </dict>
